@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    /* background-color: rgb(208, 208, 208); */
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+.contenedor {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+}

@@ -1,0 +1,89 @@
+<app-listado-generico [listado]="peliculas">
+
+  <ng-container contenido>
+    <div class="contenedor">
+      <div class="grid">
+        @for (pelicula of peliculas; track $index) {
+
+          <!-- <mat-card class="example-card" appearance="outlined">
+            <mat-card-header>
+              <mat-card-title>{{pelicula.titulo}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="pelicula.poster" alt="Poster">
+
+            <mat-card-content>
+              <p>{{pelicula.fecha | date: "dd-MMMM-yyy"}}</p>
+              <p>{{pelicula.precio | currency}} </p>
+              <app-rating [maximoRating]="5" (votado)="procesarVoto($event)">
+              </app-rating>
+            </mat-card-content>
+
+            <mat-card-actions>
+              <button mat-flat-button (click)="eliminarPelicula(pelicula)">
+                <mat-icon>delete</mat-icon>
+                Eliminar
+              </button>
+            </mat-card-actions>
+
+          </mat-card> -->
+
+
+ 
+        <div class="card">
+          <div class="card-title">{{pelicula.titulo}}</div>
+          <div class="card-img">
+            <img [src]="pelicula.poster" alt="Poster" width="169" height="250">
+          </div>
+          <p>{{pelicula.fecha | date: "dd-MMMM-yyy"}}</p>
+          <p>{{pelicula.precio | currency}} </p>
+
+          <app-rating [maximoRating]="5" (votado)="procesarVoto($event)">
+
+          </app-rating>
+          <br>
+
+          <div class="botones">
+            <button mat-flat-button class="primary">
+              <mat-icon>
+                edit
+              </mat-icon>
+              Editar
+            </button>
+                    
+            <button mat-flat-button (click)="eliminarPelicula(pelicula)" class="warn">
+              <mat-icon>delete</mat-icon>
+              Eliminar
+            </button>
+          </div>
+          
+          </div>
+        }
+      </div>
+    </div>
+  </ng-container>
+
+
+</app-listado-generico>
+
+<!-- Ejemplo *ngIf
+<div *ngIf="!peliculas">
+  Cargando...
+</div>
+
+<div *ngIf="peliculas.length<1">
+  No hay elementos para mostrar
+</div>
+
+<div class="contenedor">
+  @for (pelicula of peliculas; track $index) {
+  <div class="card">
+    <div class="card-body">
+      <img [ngSrc]="pelicula.poster" [priority]="$index === 0" alt=" Poster " width="169" height="250">
+      <h2 class="card-title">{{pelicula.titulo}}</h2>
+      <p class="card-text">{{pelicula.fecha | date: "dd-MMMM-yyy"}}</p>
+      <p >{{pelicula.precio | currency}} </p>
+      <button class="card-btn">Leer más</button>
+    </div>
+  </div>
+</div>
+} -->

@@ -8,12 +8,13 @@ import { MenuComponent } from './compartidos/componentes/menu/menu.component';
 import { RatingComponent } from './compartidos/componentes/rating/rating.component';
 import { MatButtonModule } from '@angular/material/button';
 import { LadingPageComponent } from './lading-page/lading-page.component';
+import { FooterComponent } from "./compartidos/footer/footer.component";
 
 
 @Component({
   selector: 'app-root',
   // Imports: Se agergan los componentes a utilizar en index
-  imports: [MenuComponent, MatButtonModule, RouterOutlet],
+  imports: [MenuComponent, MatButtonModule, RouterOutlet, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

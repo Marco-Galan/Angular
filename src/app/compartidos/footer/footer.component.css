@@ -1,0 +1,11 @@
+footer{
+    margin-top: 2rem;
+    background-color: black;
+}
+
+.datos{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    color: #565656;
+}

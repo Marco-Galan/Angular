@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { ActorCreacionDTO, ActorDTO } from '../actores';
 import moment, { utc } from 'moment';
+import { rechazarFechaFutura } from '../../compartidos/funciones/validaciones';
 
 @Component({
   selector: 'app-formulario-actores',
@@ -32,9 +33,38 @@ export class FormularioActoresComponent implements OnInit{
 
   form = this.formbuilder.group({
     nombre: ['', { validators: [Validators.required] }],
-    fechaNacimiento: new FormControl<Date | null>(null)
+    fechaNacimiento: new FormControl<Date | null>(null,{
+      validators: [Validators.required, rechazarFechaFutura()]
+    })
 
   })
+
+
+  obtenerErrorCampoNombre(){
+    let campo = this.form.controls.nombre;
+
+    if(campo.hasError('required')){
+      return 'El campo nombre es requerido';
+    }
+
+    return "";
+  }
+
+
+  obtenerErrorFechaNacimiento(){
+    let campo = this.form.controls.fechaNacimiento;
+    
+    if(campo.hasError('required')){
+      return 'El campo fecha es requerido';
+    }
+
+
+    if( campo.hasError("futuro")){
+      return campo.getError('futuro').mensaje;
+    }
+
+    return "";
+  }
 
   guardarCambios(){
     if(!this.form.value){

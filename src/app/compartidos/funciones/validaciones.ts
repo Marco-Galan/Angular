@@ -21,3 +21,21 @@ export function primeraLetraMayuscula(): ValidatorFn {
     return null;
   };
 }
+
+
+export function rechazarFechaFutura(): ValidatorFn{
+  return (control: AbstractControl): ValidationErrors | null =>{
+    const fechaEscogida = new Date(control.value);
+    const fechaActual = new Date();
+
+    if(fechaEscogida > fechaActual){
+      return{
+        futuro: {
+          mensaje: 'La fecha escogida no puede saer mayor a la actual'
+        }
+      }
+    }
+
+    return null;
+  }
+}

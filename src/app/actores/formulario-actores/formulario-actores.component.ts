@@ -8,10 +8,11 @@ import { RouterLink } from '@angular/router';
 import { ActorCreacionDTO, ActorDTO } from '../actores';
 import moment, { utc } from 'moment';
 import { rechazarFechaFutura } from '../../compartidos/funciones/validaciones';
+import { SelectorImagenComponent } from "../../compartidos/componentes/selector-imagen/selector-imagen.component";
 
 @Component({
   selector: 'app-formulario-actores',
-  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatDatepickerModule],
+  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatDatepickerModule, SelectorImagenComponent],
   templateUrl: './formulario-actores.component.html',
   styleUrl: './formulario-actores.component.css'
 })
@@ -35,7 +36,8 @@ export class FormularioActoresComponent implements OnInit{
     nombre: ['', { validators: [Validators.required] }],
     fechaNacimiento: new FormControl<Date | null>(null,{
       validators: [Validators.required, rechazarFechaFutura()]
-    })
+    }),
+    foto: new FormControl<File | string | null>(null)
 
   })
 
@@ -74,6 +76,15 @@ export class FormularioActoresComponent implements OnInit{
     const actor = this.form.value as ActorCreacionDTO;
     
     actor.fechaNacimiento = moment(actor.fechaNacimiento).toDate(); //Conversion de moment a fecha string
+
+    if(typeof actor.foto === "string"){
+      // 
+      actor.foto = undefined
+    }
     this.posteoFormulario.emit(actor);
+  }
+
+  archivoSeleccionado(file: File){
+    this.form.controls.foto.setValue(file);
   }
 }

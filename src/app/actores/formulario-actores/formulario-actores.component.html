@@ -13,6 +13,13 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-error>{{obtenerErrorFechaNacimiento()}}</mat-error>
     </mat-form-field>
+    <div >
+        <app-selector-imagen titulo="foto del actor" 
+        [urlImagenActual]="modelo?.foto"
+        (archivoSeleccionado)="archivoSeleccionado($event)">
+            
+        </app-selector-imagen>
+    </div>
     <div class="espacio-botones">
         <button type="submit" mat-flat-button [disabled]="form.invalid">Guardar</button>
         <a mat-stroked-button routerLink="/actores">Cancelar</a>

@@ -16,25 +16,26 @@ import { GeneroCreacionDTO, GeneroDTO } from '../generos';
 })
 export class FormularioGenerosComponent implements OnInit {
   ngOnInit(): void {
-    // Verificia si es modelo no es nulo
-    
+    // Verifica si el modelo no es nulo y actualiza el formulario con los valores del modelo
     if(this.modelo !== undefined){
       this.form.patchValue(this.modelo);
     }
   }
 
   @Input()
-  modelo?: GeneroDTO;
+  modelo?: GeneroDTO; // Modelo de datos para el formulario
   
   @Output()
-  posteoFormulario = new EventEmitter<GeneroCreacionDTO>();
+  posteoFormulario = new EventEmitter<GeneroCreacionDTO>(); // Evento que se emite al enviar el formulario
 
-  private formbuilder = inject(FormBuilder);
+  private formbuilder = inject(FormBuilder); // Inyección del servicio FormBuilder
 
+  // Definición del formulario con validaciones
   form = this.formbuilder.group({
     nombre: ['', {validators: [Validators.required, primeraLetraMayuscula()]}],
   })
 
+  // Método para obtener el mensaje de error del campo nombre
   obtenerErrorCampoNombre(): string {
     let nombre = this.form.controls.nombre;
 
@@ -49,8 +50,8 @@ export class FormularioGenerosComponent implements OnInit {
     return "";
   }
 
+  // Método para guardar los cambios y emitir el evento con los datos del formulario
   guardarCambios() {
-    
     if (!this.form.valid) {
       return;
     }

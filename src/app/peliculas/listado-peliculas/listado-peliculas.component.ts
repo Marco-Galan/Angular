@@ -7,7 +7,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { RatingComponent } from '../../compartidos/componentes/rating/rating.component';
 
-
 @Component({
   selector: 'app-listado-peliculas',
   imports: [DatePipe, CurrencyPipe, ListadoGenericoComponent, MatCardModule, MatButtonModule, MatCardModule, MatIconModule, RatingComponent],
@@ -20,13 +19,14 @@ export class ListadoPeliculasComponent{
   peliculas!: any[];
 
   ngOnInit(): void {
+    // Este método se ejecuta cuando el componente se inicializa
     setTimeout(()=>{
+      // Aquí se puede agregar lógica que se ejecutará después de 2 segundos = 2000 milisegundos
     }, 2000);
-
-
   }
 
   agregarPelicula(){
+    // Agrega una nueva película al arreglo de películas
     this.peliculas.push({
       titulo: 'Avatar',
       poster: '',
@@ -36,12 +36,15 @@ export class ListadoPeliculasComponent{
   }
   
   procesarVoto(voto: number){
+    // Muestra una alerta con la calificación otorgada
     alert(`Calificacion otorgada: ${voto} estrellas`);
   }
 
   eliminarPelicula(pelicula: any){
+    // Encuentra el índice de la película a eliminar en el arreglo de películas
     const indice = this.peliculas.findIndex((peliculaActual: any) => peliculaActual.titulo === pelicula.titulo);
-        this.peliculas.splice(indice, 1); // Eliminación de elemento según su arreglo   
+    // Elimina la película del arreglo usando el índice encontrado
+    this.peliculas.splice(indice, 1);
   }
 
 }

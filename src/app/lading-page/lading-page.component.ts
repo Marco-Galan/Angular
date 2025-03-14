@@ -9,8 +9,10 @@ import { ListadoPeliculasComponent } from "../peliculas/listado-peliculas/listad
 })
 export class LadingPageComponent implements OnInit {
 
-    ngOnInit(): void {
+  ngOnInit(): void {
+    // Este método se ejecuta cuando el componente se inicializa
     setTimeout(()=>{
+      // Inicializa el arreglo de películas en cines después de 2 segundos
       this.peliculasCines = [{
         titulo: 'Avatar',
         poster: 'img/avatar.jpg',
@@ -54,6 +56,7 @@ export class LadingPageComponent implements OnInit {
         poster: 'https://upload.wikimedia.org/wikipedia/en/8/8b/Bad_Boys_Ride_or_Die_%282024%29_poster.jpg'
       }];
 
+      // Inicializa el arreglo de películas de estrenos después de 2 segundos
       this.peliculasEstrenos = [
       {
         titulo: 'Reyes',
@@ -100,6 +103,10 @@ export class LadingPageComponent implements OnInit {
       ]
     }, 2000);
   }
+
+  // Arreglo para almacenar las películas en cines
   peliculasCines!: any[];
+  
+  // Arreglo para almacenar las películas de estrenos
   peliculasEstrenos!: any[];
 }

@@ -17,7 +17,8 @@ export class EditarGeneroComponent {
   genero: GeneroDTO = {id: 1, nombre: 'Acción'};
 
   guardarCambios(genero: GeneroCreacionDTO){
-    console.log('Editando el genero', genero);
+    alert('Genero editado: ' + genero.nombre);
+    // console.log('Editando el genero', genero);
   }
 
 }

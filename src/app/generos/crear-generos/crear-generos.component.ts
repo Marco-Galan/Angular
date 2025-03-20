@@ -19,6 +19,7 @@ export class CrearGenerosComponent {
   private router = inject(Router);
 
   guardarCambios(genero: GeneroCreacionDTO) {
-    console.log('Creando el genero: ', genero);
+    alert('Genero creado: ' + genero.nombre) ;
+    // console.log('Creando el genero: ', genero);
   }
 }

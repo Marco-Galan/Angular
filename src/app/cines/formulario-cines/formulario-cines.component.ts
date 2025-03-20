@@ -1,13 +1,15 @@
 import { Component, EventEmitter, inject, Input, model, OnInit, Output } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { CineCreacionDTO } from '../cines';
+import { MapaComponent } from "../../compartidos/componentes/mapa/mapa.component";
+import { Coordenada } from '../../compartidos/componentes/mapa/coordenada';
 
 @Component({
   selector: 'app-formulario-cines',
-  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, RouterLink],
+  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, RouterLink, MapaComponent],
   templateUrl: './formulario-cines.component.html',
   styleUrl: './formulario-cines.component.css'
 })
@@ -26,7 +28,9 @@ export class FormularioCinesComponent implements OnInit{
 
   private formbuilder = inject(FormBuilder);
   form = this.formbuilder.group({
-    nombre: ['', {validators: [Validators.required]}]
+    nombre: ['', {validators: [Validators.required]}],
+    latitud: new FormControl<number | null>(null, [Validators.required]),
+    longitud: new FormControl<number | null>(null, [Validators.required])
   })
 
   obtenerErrorCampoNombre():string{
@@ -39,6 +43,10 @@ export class FormularioCinesComponent implements OnInit{
     return "";
   }
 
+  coordenadaSeleccionada(coordenada: Coordenada){
+    this.form.patchValue(coordenada);
+  }
+  
   guardarCambios(){
     if(!this.form.valid){
       return;
@@ -46,6 +54,8 @@ export class FormularioCinesComponent implements OnInit{
     const cine = this.form.value as CineCreacionDTO;
     this.posteoFormulario.emit(cine);    
   }
+
+
 
 
 }

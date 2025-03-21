@@ -11,6 +11,7 @@ import { EditarGeneroComponent } from './generos/editar-genero/editar-genero.com
 import { EditarActoresComponent } from './actores/editar-actores/editar-actores.component';
 import { EditarCinesComponent } from './cines/editar-cines/editar-cines.component';
 import { EditarPeliculaComponent } from './peliculas/editar-pelicula/editar-pelicula.component';
+import { FiltroPeliculasComponent } from './peliculas/filtro-peliculas/filtro-peliculas.component';
 
 export const routes: Routes = [
     {path: '', component: LadingPageComponent },
@@ -25,6 +26,7 @@ export const routes: Routes = [
     {path: 'cines/editar/:id', component: EditarCinesComponent},
     {path: 'peliculas', component: CrearPeliculaComponent},
     {path: 'peliculas/editar/:id', component: EditarPeliculaComponent},
+    {path: 'peliculas/buscar', component: FiltroPeliculasComponent},
     // Wildcard 
     {path: '**', redirectTo: ''}  //  rediccion pagina principal
     // // Rediregir a un componente

@@ -27,6 +27,7 @@ import { HttpParams } from '@angular/common/http';
 })
 export class FiltroPeliculasComponent implements OnInit {
   ngOnInit(): void {
+    
     this.leerValoresUrl(); 
     this.buscarPeliculas(this.form.value as FiltroPeliculas);
 

@@ -16,6 +16,7 @@ h2 {
     margin: 0 auto;
     width: 90%;
     max-width: 1200px;
+
 }
 
 button{
@@ -26,9 +27,15 @@ button{
     width: 100%;
     max-width: 500px;
     display: block;
-    margin-top: 1rem;
+    margin: 1rem;
 }
 
 .espacio-botones{
-    margin-top: 1rem;
+    margin: 1rem;
     }
+
+.botones{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;;
+}

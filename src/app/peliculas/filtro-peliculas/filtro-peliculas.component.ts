@@ -9,7 +9,7 @@ import { ListadoPeliculasComponent } from "../listado-peliculas/listado-pelicula
 import { FiltroPeliculas } from './filtroPeliculas';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { HttpParams } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-filtro-peliculas',

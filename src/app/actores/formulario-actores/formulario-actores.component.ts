@@ -78,8 +78,7 @@ export class FormularioActoresComponent implements OnInit{
     actor.fechaNacimiento = moment(actor.fechaNacimiento).toDate(); //Conversion de moment a fecha string
 
     if(typeof actor.foto === "string"){
-      // 
-      actor.foto = undefined
+       actor.foto = undefined
     }
     this.posteoFormulario.emit(actor);
   }

@@ -12,6 +12,7 @@ import { EditarActoresComponent } from './actores/editar-actores/editar-actores.
 import { EditarCinesComponent } from './cines/editar-cines/editar-cines.component';
 import { EditarPeliculaComponent } from './peliculas/editar-pelicula/editar-pelicula.component';
 import { FiltroPeliculasComponent } from './peliculas/filtro-peliculas/filtro-peliculas.component';
+import { IndicePeliculasComponent } from './peliculas/indice-peliculas/indice-peliculas.component';
 
 export const routes: Routes = [
     {path: '', component: LadingPageComponent },
@@ -24,7 +25,8 @@ export const routes: Routes = [
     {path: 'cines', component: IndiceCinesComponent},
     {path: 'cines/crear', component: CrearCinesComponent},
     {path: 'cines/editar/:id', component: EditarCinesComponent},
-    {path: 'peliculas', component: CrearPeliculaComponent},
+    {path: 'peliculas', component: IndicePeliculasComponent},
+    {path: 'peliculas/crear', component: CrearPeliculaComponent},
     {path: 'peliculas/editar/:id', component: EditarPeliculaComponent},
     {path: 'peliculas/buscar', component: FiltroPeliculasComponent},
     // Wildcard 

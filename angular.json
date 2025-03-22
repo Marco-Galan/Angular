@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demoxx1": {
+    "peliculas": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/demoxx1",
+            "outputPath": "dist/peliculas",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -23,12 +23,12 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public"  
               },
               {
                 "glob": "**/*",
                 "input": "./node_modules/leaflet/dist/images",
-                "output": "assets/"
+		            "output": "assets/"     
               }
             ],
             "styles": [
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "demoxx1:build:production"
+              "buildTarget": "peliculas:build:production"
             },
             "development": {
-              "buildTarget": "demoxx1:build:development"
+              "buildTarget": "peliculas:build:development"
             }
           },
           "defaultConfiguration": "development"

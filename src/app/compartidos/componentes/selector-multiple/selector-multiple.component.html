@@ -1,0 +1,19 @@
+<div class="caja">
+    <ul>
+        @for (elemento of noSeleccionados; track $index) {
+            <li (click)="seleccionar(elemento, $index)"> {{elemento.valor}} </li>
+        }
+    </ul>
+
+        <div class="opciones">
+            <button mat-button type="button" (click)="seleccionarTodo()"> <mat-icon>last_page</mat-icon></button>
+            <button mat-button ="button" (click)="borrarTodo()"><mat-icon>first_page</mat-icon></button>
+        </div>
+
+     <ul>
+            @for (elemento of seleccionados; track $index) {
+                <li (click)="noSelecionar(elemento, $index)"> {{elemento.valor}} </li>
+            }
+    </ul>
+
+</div>

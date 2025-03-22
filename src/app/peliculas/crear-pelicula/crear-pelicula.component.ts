@@ -18,6 +18,14 @@ export class CrearPeliculaComponent {
     {llave: 3, valor: 'Comedia'}
   ];
 
+
+  cinesSeleccionados: SelectorMultipleDTO [] = [];
+  cinesNoSeleccionados: SelectorMultipleDTO [] = [
+    {llave: 1, valor: 'México'},
+    {llave: 2, valor: 'Veracruz'},
+    {llave: 3, valor: 'Oaxaca'}
+  ];
+
   guardarCambios(pelicula: PeliculaCreacionDTO)
   {
     console.log(pelicula);

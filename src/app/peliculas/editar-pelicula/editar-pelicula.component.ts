@@ -30,6 +30,14 @@ export class EditarPeliculaComponent {
       {llave: 3, valor: 'Comedia'}
     ];
 
+    cinesSeleccionados: SelectorMultipleDTO [] = [
+      {llave: 1, valor: 'México'}
+    ];
+    cinesNoSeleccionados: SelectorMultipleDTO [] = [
+      {llave: 2, valor: 'Veracruz'},
+      {llave: 3, valor: 'Oaxaca'}
+    ];
+
   guardarCambios(pelicula: PeliculaCreacionDTO){
     console.log(pelicula);
     // alert('Pelicula editada: ' + pelicula.titulo + '\n Titulo: ' + pelicula.titulo + '\n Fecha de estreno: ' + pelicula.fechaLanzamiento);

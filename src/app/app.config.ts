@@ -4,6 +4,7 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   // Se agrega withComponentInputBinding() para obtener id
@@ -25,6 +26,8 @@ export const appConfig: ApplicationConfig = {
         dateA11yLabel: 'LL', // Etiqueta de accesibilidad para la fecha
         monthYearA11yLabel: 'MMMM YYYY' // Etiqueta de accesibilidad para mes y año
       }
-    })
+    }),
+     // Proporciona el cliente HTTP con soporte para fetch
+    provideHttpClient(withFetch())
   ]
 };

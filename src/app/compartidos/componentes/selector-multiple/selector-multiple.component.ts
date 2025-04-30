@@ -23,8 +23,8 @@ seleccionar(elemento: SelectorMultipleDTO, indice: number){
 }
 
 noSelecionar(elemento: SelectorMultipleDTO, indice: number){
-  this.seleccionados.push(elemento);
-  this.noSeleccionados.splice(indice, 1);
+  this.noSeleccionados.push(elemento);
+  this.seleccionados.splice(indice, 1);
 }
 
 seleccionarTodo(){

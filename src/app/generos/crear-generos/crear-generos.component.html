@@ -1,6 +1,7 @@
 <div class="contenedor">
 
     <H2>Crear Género</H2>
+    <app-mostrar-errores [errores]="errores"></app-mostrar-errores>
     <app-formulario-generos (posteoFormulario)="guardarCambios($event)"></app-formulario-generos>
 
 </div>

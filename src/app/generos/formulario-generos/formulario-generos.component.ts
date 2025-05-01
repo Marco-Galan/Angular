@@ -32,7 +32,7 @@ export class FormularioGenerosComponent implements OnInit {
 
   // Definición del formulario con validaciones
   form = this.formbuilder.group({
-    nombre: ['', {validators: [Validators.required, primeraLetraMayuscula()]}],
+    nombre: ['', {validators: [Validators.required, primeraLetraMayuscula(), Validators.maxLength(50)]}],
   })
 
   // Método para obtener el mensaje de error del campo nombre
@@ -41,6 +41,10 @@ export class FormularioGenerosComponent implements OnInit {
 
     if (nombre.hasError('required')) {
       return 'El campo nombre es requerido';
+    }
+
+    if (nombre.hasError('maxlength')) {
+      return `El campo nombre solo admite ${nombre.getError('maxlength').requiredLength} caracteres`;
     }
 
     if (nombre.hasError('primeraLetraMayuscula')) {

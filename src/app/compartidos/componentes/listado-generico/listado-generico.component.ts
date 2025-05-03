@@ -1,10 +1,11 @@
 import { CurrencyPipe, DatePipe, NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { CargandoComponent } from "../cargando/cargando.component";
+
 
 @Component({
   selector: 'app-listado-generico',
-  imports: [MatProgressSpinnerModule],
+  imports: [CargandoComponent],
   templateUrl: './listado-generico.component.html',
   styleUrl: './listado-generico.component.css'
 })
